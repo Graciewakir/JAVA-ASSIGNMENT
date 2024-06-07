@@ -9,7 +9,7 @@ package carrentalsystem;
  * @author Shallom
  */
 import java.util.Scanner;
-class CUSTOMER21{
+class CUSTOMER{
     private static final Scanner custom = new Scanner(System.in);
     private String fullName, modeOfPayment;
     private long number,driverLicense;
@@ -50,7 +50,7 @@ class CUSTOMER21{
      } 
 }
 
-class CAR22 extends CUSTOMER21{
+class CAR extends CUSTOMER{
     Scanner custom1=new Scanner(System.in);
     String model, licensePlate;
     int year;
@@ -67,7 +67,7 @@ class CAR22 extends CUSTOMER21{
         mileage = custom1.nextLong();     
     }
 }
-class RENTAL24 extends CAR22{
+class RENTAL extends CAR{
     Scanner custom2=new Scanner(System.in);
     String pickUp, dropOff, drivenMileage;
     double hours, hourlyRate=1000.00;
@@ -98,7 +98,7 @@ class RENTAL24 extends CAR22{
 
     }
     public static void main(String[] args){
-        RENTAL24 cars = new RENTAL24();
+        RENTAL cars = new RENTAL();
         cars.read();
         cars.report();
     }

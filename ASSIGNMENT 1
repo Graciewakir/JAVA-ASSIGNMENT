@@ -1,0 +1,107 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package carrentalsystem;
+
+/**
+ *
+ * @author Shallom
+ */
+import java.util.Scanner;
+class CUSTOMER21{
+    private static final Scanner custom = new Scanner(System.in);
+    private String fullName, modeOfPayment;
+    private long number,driverLicense;
+    
+    public String getFullName(){
+        return fullName;
+    }
+    public String getModeOfPayment(){
+        return modeOfPayment;
+    }
+    public long getNumber(){
+        return number;
+    }
+    public long getDriverLicense(){
+        return driverLicense;
+    }
+   public void  setFullName( String newFullName){
+        this.fullName = newFullName; 
+    }
+   public void  setModeOfPayment( String newModeOfPayment){
+        this.modeOfPayment = newModeOfPayment; 
+    }
+   public void  setNumber( long newNumber){
+        this.number = newNumber; 
+    }
+   public void  setDriverLicense( long newDriverLicense){
+        this.driverLicense = newDriverLicense; 
+    }
+   void input(){
+       System.out.println("Enter customer full name");
+       setFullName(custom.nextLine());
+       System.out.println("Enter customer mode of payment: 1.Cash 2.M-Pesa 3.Credit card ");
+       setModeOfPayment(custom.nextLine());
+       System.out.println("Enter customer phone number");
+       setNumber(custom.nextLong());
+       System.out.println("Enter customer driver's license");
+       setDriverLicense(custom.nextLong());
+     } 
+}
+
+class CAR22 extends CUSTOMER21{
+    Scanner custom1=new Scanner(System.in);
+    String model, licensePlate;
+    int year;
+    long mileage;
+    void compute(){
+        input();
+        System.out.println("Enter the model of the car ");
+        model = custom1.nextLine();
+        System.out.println("Enter the license plate of the car ");
+        licensePlate = custom1.nextLine();
+        System.out.println("Enter the year the car was made ");
+        year = custom1.nextInt();
+        System.out.println("Enter the milage of the car ");
+        mileage = custom1.nextLong();     
+    }
+}
+class RENTAL24 extends CAR22{
+    Scanner custom2=new Scanner(System.in);
+    String pickUp, dropOff, drivenMileage;
+    double hours, hourlyRate=1000.00;
+    void read(){
+        compute();
+        System.out.println("Enter the pick up location of the car ");
+        pickUp = custom2.nextLine();
+        System.out.println("Enter the drop off location of the car ");
+       dropOff = custom2.nextLine();
+        System.out.println("Enter the driven mileage ");
+        drivenMileage = custom2.nextLine();
+        System.out.println("Enter the hours for the car to be used ");
+        hours = custom2.nextDouble();     
+    }
+    void report(){
+        System.out.println("Here is the full name of customer "+ getFullName());
+        System.out.println("Here is the mode of payment "+ getModeOfPayment());
+        System.out.println("Here is the phone number of customer "+ getNumber());
+        System.out.println("Here is the driver's license of customer "+ getDriverLicense());
+        System.out.println("Here is the model of the car "+ model);
+        System.out.println("Here is the license plate of the car "+ licensePlate);
+        System.out.println("Here is the year the car was made "+ year);
+        System.out.println("Here is the mileage of the car "+ mileage);
+        System.out.println("Here is the pick up location of the car "+ pickUp);
+        System.out.println("Here is the drop off of the car "+ dropOff);
+        System.out.println("Here is the driven mileage "+ drivenMileage);
+        System.out.println("Here is the hours used of the car "+ hours + " and the total amount to be paid is: " + hours*hourlyRate);
+
+    }
+    public static void main(String[] args){
+        RENTAL24 cars = new RENTAL24();
+        cars.read();
+        cars.report();
+    }
+}
+
+
